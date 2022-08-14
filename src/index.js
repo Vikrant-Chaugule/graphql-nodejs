@@ -7,8 +7,24 @@ const typeDefs = gql`
     friends: [User]
   }
 
+  type Anime {
+    title: String!
+    characters: [String]
+  }
+
+  type Movie {
+    title: String!
+    characters: [String]
+  }
+
+  type Media {
+    anime: Anime
+    movie: Movie
+  }
+
   type Query {
     getUser: User
+    getMedia: Media
   }
 `;
 
@@ -18,6 +34,27 @@ const resolvers = {
       return {
         email: "test@gmail.com",
         friends: [],
+      };
+    },
+    getMedia: () => {},
+  },
+  Media: {
+    anime: () => {
+      return {
+        title: "One Piece",
+        characters: [
+          "Monkey D. Luffy",
+          "Roronoa Zoro",
+          "Nami",
+          "Usopp",
+          "Sanji",
+        ],
+      };
+    },
+    movie: () => {
+      return {
+        title: "Zindagi Na Milegi Dobara",
+        characters: ["Kabir", "Imran", "Arjun"],
       };
     },
   },
