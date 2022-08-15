@@ -36,20 +36,23 @@ const resolvers = {
         friends: [],
       };
     },
-    getMedia: () => {},
+    getMedia: () => ({}),
   },
   Media: {
-    anime: () => {
-      return {
-        title: "One Piece",
-        characters: [
-          "Monkey D. Luffy",
-          "Roronoa Zoro",
-          "Nami",
-          "Usopp",
-          "Sanji",
-        ],
-      };
+    anime: async () => {
+      console.log("anime");
+      setTimeout(() => {
+        return {
+          title: "One Piece",
+          characters: [
+            "Monkey D. Luffy",
+            "Roronoa Zoro",
+            "Nami",
+            "Usopp",
+            "Sanji",
+          ],
+        };
+      }, 2000);
     },
     movie: () => {
       return {
